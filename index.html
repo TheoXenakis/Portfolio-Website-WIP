@@ -1,161 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Theo Xenakis | Game Designer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Theo Xenakis | Game Designer</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <!-- SVG noise texture for grainy effect -->
 <div class="grain-overlay"></div>
 
 <!-- Navbar -->
 <nav class="navbar">
-  <div class="logo"><a href="index.html">Theo Xenakis</a></div>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="resume/Resume-TheodoreXenakis-Final-SWDEV.pdf">Resume</a></li>
-  </ul>
+    <div class="logo"><a href="index.html">Theo Xenakis</a></div>
+    <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume/Resume-TheodoreXenakis-Final-SWDEV.pdf">Resume</a></li>
+    </ul>
 </nav>
 
 <!-- Main Content -->
 <main>
 
-  <!-- About Section -->
-  <section id="welcome">
-    <div class="about-flex">
-      <div class="about-text">
-        <h1 class="slide-in">Hi I'm Theo <span class="wave" id="waveHand">👋</span></h1>
-        <div class="fade-in delayed">
-          <p>I’m a Computer Science student at Arizona State University with a lifelong passion for video games and interactive experiences. Growing up, I was captivated by the worlds and mechanics of games like Skyrim, DOOM Eternal, Elden Ring, and many others. Now, I’m on a journey to create my own — striving to build immersive, playful, and engaging experiences that leave a lasting impression.</p>
-          <br>
-          <p>Through my CS coursework, I’ve developed a solid foundation in programming principles, while elective classes in game design and related fields have deepened my understanding of what makes gameplay feel cohesive and enjoyable. I'm continuously learning how to bridge technical precision with creative design to build meaningful, player-focused games.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Work Section -->
-  <section id="work" class="fade-in" style="animation-delay: 1.5s;">
-    <h2>My Work</h2>
-    <div class="tile-grid">
-
-      <!-- Tile 1 -->
-      <div class="project-tile expanded">
-        <div class="tile-header" onclick="toggleTile(this)">
-          <h3>Iron Duel</h3>
-        </div>
-        <div class="tile-content">
-          <div class="project-flex">
-            <img src="images/Iron_Duel_Cover_Photo.png" class="project-image">
-            <div>
-              <p>Iron Duel is a first-person multiplayer arena shooter that pitts Knights against Cowboys in a chaotic, ps1 inspired world. Iron Duel is a collaborative project between me and my friend John Bostater and has been in development since May of 2025. Together we have collaborated in all areas of the project, with my main focuses being on scripting, map design, and asset creation. Iron Duel is currently in development. </p>
-              <a href="iron_duel.html" target="_self">View Development Timeline</a>
+    <!-- About Section -->
+    <section id="welcome">
+        <div class="about-flex">
+            <div class="about-text">
+                <h1 class="slide-in">Hi I'm Theo <span class="wave" id="waveHand">👋</span></h1>
+                <div class="fade-in delayed">
+                    <p>I’m a Computer Science student at Arizona State University with a lifelong passion for video
+                        games and interactive experiences. Growing up, I was captivated by the worlds and mechanics of
+                        games like Skyrim, DOOM Eternal, Elden Ring, and many others. Now, I’m on a journey to create my
+                        own — striving to build immersive, playful, and engaging experiences that leave a lasting
+                        impression.</p>
+                    <br>
+                    <p>Through my CS coursework, I’ve developed a solid foundation in programming principles, while
+                        elective classes in game design and related fields have deepened my understanding of what makes
+                        gameplay feel cohesive and enjoyable. I'm continuously learning how to bridge technical
+                        precision with creative design to build meaningful, player-focused games.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Tile 2 -->
-      <div class="project-tile expanded">
-        <div class="tile-header" onclick="toggleTile(this)">
-          <h3>Mechapocalypse</h3>
-        </div>
-        <div class="tile-content">
-          <div class="project-flex">
-            <img src="images/Mechapocalypse_Image.png" class="project-image">
-            <div>
-              <p>Mechapocalypse is a third-person action shooter set in a modern world that has been invaded by beasts from Hell. This game was a group final project for my 3D Game Development class taken during my Junior Year at ASU. My role was predominantly level design/creation, but I also tackled scripting and asset creation during this project. This project provided me with exposure to working on various aspects of game development and my collaboration in a group setting fostered leadership and communication skills, as well as insight into proper game development and design principles. </p>
-              <a href="https://tylerkf.itch.io/mechapocalypse">Itch.io Page</a>
+    <!-- Work Section -->
+    <section id="work" class="fade-in" style="animation-delay: 1.5s;">
+        <h2>My Work</h2>
+        <div class="tile-grid">
+
+            <!-- Tile 1 -->
+            <div class="project-tile expanded">
+                <div class="tile-header" onclick="toggleTile(this)">
+                    <h3>Iron Duel</h3>
+                </div>
+                <div class="tile-content">
+                    <div class="project-flex">
+                        <img src="images/Iron_Duel_Cover_Photo.png" class="project-image">
+                        <div>
+                            <p>Iron Duel is a first-person multiplayer arena shooter that pits knights against cowboys
+                                in a chaotic, PS1-inspired world. It is a collaborative project between my friend John
+                                Bostater and me, and has been in development since May 2025. Together, we have worked on
+                                all aspects of the game, with my primary focus on scripting, map design, and asset
+                                creation. Iron Duel is currently in development. </p>
+                            <a href="iron_duel.html" target="_self">View Development Timeline</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Tile 2 -->
+            <div class="project-tile expanded">
+                <div class="tile-header" onclick="toggleTile(this)">
+                    <h3>Mechapocalypse</h3>
+                </div>
+                <div class="tile-content">
+                    <div class="project-flex">
+                        <img src="images/Mechapocalypse_Image.png" class="project-image">
+                        <div>
+                            <p>Mechapocalypse is a third-person action shooter set in a modern world overrun by beasts
+                                from Hell. This game was a group final project for my 3D Game Development class taken
+                                during my junior year at ASU. My role was predominantly level design/creation, but I
+                                also tackled scripting and asset creation during this project. This project provided me
+                                with exposure to working on various aspects of game development and my collaboration in
+                                a group setting fostered leadership and communication skills, as well as insight into
+                                proper game development and design principles. </p>
+                            <a href="https://tylerkf.itch.io/mechapocalypse">Itch.io Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of Project Tiles-->
         </div>
-      </div>
-      <!-- End of Project Tiles-->
-    </div>
-  </section>
+    </section>
 
-<footer class="site-footer">
-  <p>&copy; 2025 Theo Xenakis. All rights reserved.</p>
-</footer>
+    <footer class="site-footer">
+        <p>&copy; 2025 Theo Xenakis. All rights reserved.</p>
+    </footer>
 
-<canvas id="dustCanvas"></canvas>
+    <canvas id="dustCanvas"></canvas>
 
-<!-- Title area -->
-<script>
-  function toggleTile(header) {
-    const tile = header.parentElement;
-    tile.classList.toggle('expanded');
-  }
-</script>
+    <!-- Title area -->
+    <script>
+        function toggleTile(header) {
+            const tile = header.parentElement;
+            tile.classList.toggle('expanded');
+        }
+    </script>
 
-<script>
-  const canvas = document.getElementById('dustCanvas');
-  const ctx = canvas.getContext('2d');
+    <script>
+        const canvas = document.getElementById('dustCanvas');
+        const ctx = canvas.getContext('2d');
 
-  let particles = [];
+        let particles = [];
 
-  function resize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
 
-  function createParticles(count) {
-    for (let i = 0; i < count; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 1.5 + 0.5,
-        speedY: Math.random() * 0.5 + 0.1,
-        alpha: Math.random() * 0.5 + 0.1,
-      });
-    }
-  }
-  createParticles(100);
+        window.addEventListener('resize', resize);
+        resize();
 
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let p of particles) {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
-      ctx.fill();
+        function createParticles(count) {
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 1.5 + 0.5,
+                    speedY: Math.random() * 0.5 + 0.1,
+                    alpha: Math.random() * 0.5 + 0.1,
+                });
+            }
+        }
 
-      p.y -= p.speedY;
-      if (p.y < 0) {
-        p.y = canvas.height;
-        p.x = Math.random() * canvas.width;
-      }
-    }
-    requestAnimationFrame(animate);
-  }
-  animate();
+        createParticles(100);
 
-  const wave = document.getElementById('waveHand');
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let p of particles) {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+                ctx.fill();
 
-  function triggerWave() {
-    wave.classList.remove('animate');
-    void wave.offsetWidth; // Reflow to reset animation
-    wave.classList.add('animate');
-  }
+                p.y -= p.speedY;
+                if (p.y < 0) {
+                    p.y = canvas.height;
+                    p.x = Math.random() * canvas.width;
+                }
+            }
+            requestAnimationFrame(animate);
+        }
 
-  // Auto wave on load
-  window.addEventListener('DOMContentLoaded', () => {
-    triggerWave();
-  });
+        animate();
 
-  // Also wave on click
-  wave.addEventListener('click', () => {
-    triggerWave();
-  });
+        const wave = document.getElementById('waveHand');
 
-</script>
+        function triggerWave() {
+            wave.classList.remove('animate');
+            void wave.offsetWidth; // Reflow to reset animation
+            wave.classList.add('animate');
+        }
+
+        // Auto wave on load
+        window.addEventListener('DOMContentLoaded', () => {
+            triggerWave();
+        });
+
+        // Also wave on click
+        wave.addEventListener('click', () => {
+            triggerWave();
+        });
+    </script>
 
 </body>
 </html>
