@@ -1,10 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>About Me</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Theo Xenakis</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+<!-- Dust effect & background grain -->
+<div class="grain-overlay"></div>
+<canvas id="dustCanvas"></canvas>
 
+<!-- Layout Wrapper -->
+<div class="page-wrapper">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">Theo Xenakis</a></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="resume/Resume-TheodoreXenakis-Final-SWDEV.pdf">Resume</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Me Section -->
+        <section class="fade-in" style="animation-delay: 0.5s;">
+            <div class="about-flex">
+                <img src="images/me_ai.png" alt="Theo Xenakis" class="about-image">
+                <div class="about-text">
+                    <h1>About Me</h1>
+                    <p>
+                        I'm a game designer, programmer, and world-builder. Whether it's scripting complex systems, crafting immersive levels, or shaping game feel through mechanics, I love bringing interactive ideas to life. My journey began with childhood curiosity about how my favorite games worked — and has grown into a dedicated pursuit of design that balances logic and creativity.
+                        <br><br>
+                        My core interest lies in creating games that are expressive, whether through playstyle, mechanics, or narrative. I thrive on collaboration, experimentation, and thoughtful iteration. Outside of game dev, I love analyzing systems in games, studying visual design trends, and trying to make cool stuff with cool people.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inspiration Section -->
+        <section id="inspiration" class="fade-in" style="animation-delay: 1.5s;">
+            <h2>Games That Inspired Me</h2>
+            <p>Throughout my journey as a game designer, several titles have shaped my understanding of what makes games truly memorable and engaging. Here are a few that left a lasting impact:</p>
+
+            <div class="game-list">
+                <article class="game-item">
+                    <img src="images/skyrim_pic.jpg">
+                    <h3>Skyrim</h3>
+                    <p>Its vast open world and freedom of choice taught me the power of player agency and immersive storytelling.</p>
+                </article>
+
+                <article class="game-item">
+                    <img src="images/doom_eternal_pic.jpeg">
+                    <h3>DOOM ETERNAL</h3>
+                    <p>The fast-paced combat and level design exemplify how pacing and challenge can keep players hooked.</p>
+                </article>
+
+                <article class="game-item">
+                    <img src="images/elden_ring_pic.jpg">
+                    <h3>Elden Ring</h3>
+                    <p>The intricate world-building and rewarding difficulty inspired me to value player perseverance and meaningful risk.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2025 Theo Xenakis. All rights reserved.</p>
+    </footer>
+</div>
+
+<!-- Dust Effect Script -->
+<script>
+    const canvas = document.getElementById('dustCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function createParticles(count) {
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 1.5 + 0.5,
+                speedY: Math.random() * 0.5 + 0.1,
+                alpha: Math.random() * 0.5 + 0.1,
+            });
+        }
+    }
+    createParticles(100);
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+            ctx.fill();
+
+            p.y -= p.speedY;
+            if (p.y < 0) {
+                p.y = canvas.height;
+                p.x = Math.random() * canvas.width;
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+</script>
 </body>
 </html>
