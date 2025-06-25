@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Theo Xenakis | Game Designer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- SVG noise texture for grainy effect -->
+<div class="grain-overlay"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">Theo Xenakis</div>
+  <ul class="nav-links">
+    <li><a href="#welcome">Welcome</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#resume">Resume</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main>
+
+  <!-- About Section -->
+  <section id="welcome">
+    <div class="about-flex">
+      <div class="about-text">
+        <h1 class="slide-in">Hi I'm Theo <span class="wave">👋</span></h1>
+        <div class="fade-in delayed">
+          <p>I’m a Computer Science student at Arizona State University with a lifelong passion for video games and interactive experiences. Growing up, I was captivated by the worlds and mechanics of games like Skyrim, DOOM Eternal, Elden Ring, and many others. Now, I’m on a journey to create my own — striving to build immersive, playful, and engaging experiences that leave a lasting impression.</p>
+          <br>
+          <p>Through my CS coursework, I’ve developed a solid foundation in programming principles, while elective classes in game design and related fields have deepened my understanding of what makes gameplay feel cohesive and enjoyable. I'm continuously learning how to bridge technical precision with creative design to build meaningful, player-focused games.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work" class="fade-in" style="animation-delay: 1.5s;">
+    <h2>My Work</h2>
+    <div class="tile-grid">
+
+      <!-- Tile 1 -->
+      <div class="project-tile">
+        <div class="tile-header" onclick="toggleTile(this)">
+          <h3>Iron Duel</h3>
+        </div>
+        <div class="tile-content">
+          <div class="project-flex">
+            <p>Iron Duel is a first-person multiplayer arena shooter that pitts Knights against Cowboys in a chaotic, ps1 inspired world. I, alongside my partner John Bostater have been actively working on this project since May of 2025. Together we have collaborated in all areas of the project, with my main focuses being on scripting, map design, and asset creation. Iron Duel is currently in development. </p>
+            <a href="#" target="_blank">View Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tile 2 -->
+      <div class="project-tile">
+        <div class="tile-header" onclick="toggleTile(this)">
+          <h3>Mechapocalypse</h3>
+        </div>
+        <div class="tile-content">
+          <div class="project-flex">
+            <img src="images/Mechapocalypse_Image.png" class="project-image">
+            <div>
+              <p>Mechapocalypse is a third-person action shooter set in a modern world that has been invaded by beasts from Hell. This game was a group final project for my 3D Game Development class taken during my Junior Year at ASU. My role was predominantly level design/creation, but I also tackled scripting and asset creation during this project. This project provided me with exposure to working on various aspects of game development and my collaboration in a group setting fostered leadership and communication skills, as well as insight into proper game development and design principles. </p>
+              <a href="https://tylerkf.itch.io/mechapocalypse">Itch.io Page</a>
+              <a href="https://github.com/TylerFujikawa/CPI211GameJam3"> GitHub Page</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Project Tiles-->
+    </div>
+  </section>
+
+  <!-- Inspiration Section -->
+  <section id="inspiration" class="fade-in" style="animation-delay: 2s;">
+    <h2>Games That Inspired Me</h2>
+    <p>Throughout my journey as a game designer, several titles have shaped my understanding of what makes games truly memorable and engaging. Here are a few that left a lasting impact:</p>
+
+    <div class="game-list">
+      <article class="game-item">
+        <img src="images/skyrim_pic.jpg">
+        <h3>Skyrim</h3>
+        <p>Its vast open world and freedom of choice taught me the power of player agency and immersive storytelling.</p>
+      </article>
+
+      <article class="game-item">
+        <img src="images/doom_eternal_pic.jpeg">
+        <h3>DOOM ETERNAL</h3>
+        <p>The fast-paced combat and level design exemplify how pacing and challenge can keep players hooked.</p>
+      </article>
+
+      <article class="game-item">
+        <img src="images/elden_ring_pic.jpg">
+        <h3>Elden Ring</h3>
+        <p>The intricate world-building and rewarding difficulty inspired me to value player perseverance and meaningful risk.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-in" style="animation-delay: 2.5s;">
+    <h2>Contact</h2>
+    <p>Email me at: <a href="mailto:theodore.xen7@gmail.com">theodore.xen7@gmail.com</a></p>
+  </section>
+
+  <!-- Resume Section -->
+  <section id="resume" class="fade-in" style="animation-delay: 3s;">
+    <h2>Resume</h2>
+    <p><a href="resume/Resume-TheodoreXenakis-Final-SWDEV.pdf">Download my Resume</a></p>
+  </section>
+</main>
+
+
+<canvas id="dustCanvas"></canvas>
+
+<!-- Title area -->
+<script>
+  function toggleTile(header) {
+    const tile = header.parentElement;
+    tile.classList.toggle('expanded');
+  }
+</script>
+
+<script>
+  const canvas = document.getElementById('dustCanvas');
+  const ctx = canvas.getContext('2d');
+
+  let particles = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function createParticles(count) {
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.5 + 0.5,
+        speedY: Math.random() * 0.5 + 0.1,
+        alpha: Math.random() * 0.5 + 0.1,
+      });
+    }
+  }
+  createParticles(100);
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+      ctx.fill();
+
+      p.y -= p.speedY;
+      if (p.y < 0) {
+        p.y = canvas.height;
+        p.x = Math.random() * canvas.width;
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+
+</script>
+
+</body>
+</html>
