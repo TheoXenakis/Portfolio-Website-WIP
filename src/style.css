@@ -420,3 +420,12 @@ main {
 .delayed {
     animation-delay: 1s;
 }
+
+#tower-defense {
+    margin: 40px 0;
+    text-align: center;
+}
+#tower-defense h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
