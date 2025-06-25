@@ -224,7 +224,7 @@ section p {
 }
 
 .project-tile.expanded .tile-content {
-    max-height: 1000px; /* adjust if needed */
+    max-height: 1000px;
     opacity: 1;
     padding: 1rem;
 }
