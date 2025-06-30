@@ -25,6 +25,13 @@ section {
     z-index: 2;
 }
 
+.wip {
+    display: flex;
+    align-items: center;       /* vertical centering */
+    justify-content: center;   /* horizontal centering */
+    text-align: center;
+}
+
 .site-footer {
     text-align: center;
     padding: 2rem 1rem;

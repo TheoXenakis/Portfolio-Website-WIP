@@ -2,9 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iron Duel</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<!-- Dust effect & background grain -->
+<div class="grain-overlay"></div>
+<canvas id="dustCanvas"></canvas>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo"><a href="index.html">Theo Xenakis</a></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume/Resume-TheodoreXenakis-Final-SWDEV.pdf">Resume</a></li>
+    </ul>
+</nav>
+
+<main>
+    <!-- Timeline Section -->
+    <section class="fade-in" style="animation-delay: 0.5s;">
+        <h1>Iron Duel's Development Timeline</h1>
+    </section>
+    <section class="fade-in" style="animation-delay: 1s;">
+        <p>This page shows a large winding timeline with images and dates marked to demonstrate our creative process. It should have a short description with a date. When you click on the description it opens to show you more information regarding that part of the development process</p>
+    </section>
+    <section class="fade-in" style="animation-delay: 1.5s;">
+        <p>Early Concepts and Planning: May 2025</p>
+    </section>
+    <section class="fade-in" style="animation-delay: 2.0s;">
+        <p>Initial Weapon Scripting and Player Movement</p>
+    </section>
+    <section class="fade-in" style="animation-delay:2.5s;">
+        <p>Creating prototype blender assets + my first experience using blender</p>
+    </section>
+    <section class="fade-in" style="animation-delay:3.0s">
+        <p>Basic Map Layout</p>
+    </section>
+    <section class="fade-in" style="animation-delay:3.5s;">
+        <p>First Animations</p>
+    </section>
+    <section class="fade-in" style="animation-delay:4s;">
+        <p>Weapon Wheel + Gun Drop & Pickup</p>
+    </section>
+    <section class="fade-in" style="animation-delay:4.5s;">
+        <p>First Multiplayer Implementation</p>
+    </section>
+    <section class="fade-in" style="animation-delay:5s;">
+        <p>Creating and Hosting Games</p>
+    </section>
+    <section class="fade-in" style="animation-delay:5.5s;">
+        <p>The Great Asset Creation Phase</p>
+    </section>
+    <section class="fade-in" style="animation-delay:6s;">
+        <p>Present Day July 2025</p>
+    </section>
+        <p>Current Development Notes: Things appear to be going well. I am making assets every day and John is working on fixing some issues with network objects. We hope to have a very basic working build of the game available for play testing and balancing by the end of July 2025.</p>
+    </section>
+</main>
+
+<!-- Dust Effect Script -->
+<script>
+    const canvas = document.getElementById('dustCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function createParticles(count) {
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 1.5 + 0.5,
+                speedY: Math.random() * 0.5 + 0.1,
+                alpha: Math.random() * 0.5 + 0.1,
+            });
+        }
+    }
+    createParticles(100);
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+            ctx.fill();
+
+            p.y -= p.speedY;
+            if (p.y < 0) {
+                p.y = canvas.height;
+                p.x = Math.random() * canvas.width;
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+</script>
 
 </body>
 </html>
