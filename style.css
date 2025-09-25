@@ -261,13 +261,19 @@ section p {
 }
 
 .showcase-image {
-    width:400px;
-    height: 450px;
+    /* Set a max-width to control its size on larger screens */
+    max-width: 450px; 
+    
+    /* Use 100% width to make it responsive within its container */
+    width: 100%;
+    
+    /* Let the height adjust automatically to maintain aspect ratio */
+    height: auto; 
+    
     object-fit: cover;
     border-radius: 6px;
-    flex-shrink: 0;
+    /* flex-shrink: 0;  <-- REMOVE OR COMMENT OUT THIS LINE */
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    margin-bottom: 1rem;
 }
 
 .showcase-dev-link {
