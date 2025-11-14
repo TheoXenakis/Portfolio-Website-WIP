@@ -14,13 +14,16 @@
 
 <!-- Navbar -->
 <nav class="navbar">
-    <div class="logo"><a href="index.html">Theo Xenakis</a></div>
-    <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="resume/Resume-Game-Design-Focus.pdf">Resume</a></li>
-    </ul>
+  <div class="logo"><a href="index.html">Theo Xenakis</a></div>
+  <button class="hamburger" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#work">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume/Resume-Game-Design-Focus.pdf">Resume</a></li>
+  </ul>
 </nav>
 
 <!-- Main Content -->
@@ -206,6 +209,31 @@
             triggerWave();
         });
     </script>
+    
+    <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', function() {
+        navLinks.classList.toggle('show');
+        
+        //if the list is shown, and the user clicks outside, close the menu
+        if (navLinks.classList.contains('show')) {
+            document.addEventListener('click', function outsideClickListener(event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    navLinks.classList.remove('show');
+                    document.removeEventListener('click', outsideClickListener);
+                    // ARIA accessibility
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+        
+        // ARIA accessibility
+        this.setAttribute('aria-expanded', navLinks.classList.contains('show'));
+    });
+    </script>
+
 
 </body>
 </html>
