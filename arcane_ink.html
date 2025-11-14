@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Arcane Ink | Project Page</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .arcane-header {
+            margin-top: 2rem;
+            text-align: left;
+            padding-left: 1.5rem;
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: #cfd8ff;
+        }
+        .arcane-top-row {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem auto 2rem auto;
+            max-width: 1200px;
+            flex-wrap: wrap;
+        }
+        .arcane-updates {
+            flex: 1.2;
+            min-width: 320px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            color: #cbd6f1;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .arcane-video {
+            flex: 1.6;
+            min-width: 400px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .arcane-video-title {
+            text-align: left;
+            font-weight: 600;
+            font-size: 2rem;
+            color: #cfd8ff;
+            margin-bottom: 1rem;
+        }
+        .arcane-video-embed {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #101c38;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .arcane-video-embed svg {
+            width: 64px;
+            height: 64px;
+            fill: #cfd8ff;
+        }
+        .arcane-section {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 1.5rem;
+        }
+        .arcane-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .arcane-grid-tile {
+            min-height: 120px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            padding: 1.25rem;
+        }
+        @media (max-width: 900px) {
+            .arcane-top-row { flex-direction: column; gap:1.5rem; }
+            .arcane-video, .arcane-updates { min-width: 0; }
+        }
+        @media (max-width: 600px) {
+            .arcane-header { font-size: 2.1rem; padding-left: 0.5rem;}
+            .arcane-video-title { font-size: 1.3rem;}
+        }
+    </style>
+</head>
+<body>
+<div class="grain-overlay"></div>
+<nav class="navbar">
+    <div class="logo"><a href="index.html">Theo Xenakis</a></div>
+    <button class="hamburger" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="resume/Resume-Game-Design-Focus.pdf">Resume</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1 class="arcane-header">ARCANE INK</h1>
+    <div class="arcane-top-row">
+        <!-- Recent Updates box -->
+        <div class="arcane-updates">
+            <div style="font-weight:600; font-size: 1.4rem; letter-spacing: 0.07em; margin-bottom:0.5em;">Recent Updates [Nov 2025]:</div>
+            <div>
+                <!-- Replace these lines with dynamic/current updates as wanted. -->
+                <ul style="padding-left:1em; margin:0;">
+                    <li>Project is being converted to 3D</li>
+                    <li>Goblin Walking Animations Complete</li>
+                    <li>Clay Doh Blender -> Unity Workflow Established for 3D Assets</li>
+                    <li>Increased number of images in spellcasting dataset and improving model architecture</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Video Showcase box -->
+        <div class="arcane-video">
+            <div class="arcane-video-title">Video Showcase</div>
+            <div class="arcane-video-embed">
+                <!-- Embed a real video here when ready -->
+                <!-- Example: -->
+                <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen style="width:100%;height:100%;border-radius:9px;"></iframe> -->
+                <svg viewBox="0 0 100 100">
+                    <polygon points="35,25 75,50 35,75" />
+                </svg>
+            </div>
+            <div style="text-align:center;color:#cfd8ff;margin-top:0.75em;font-size:1rem;">Gameplay preview or trailer coming soon!</div>
+        </div>
+    </div>
+
+    <div class="arcane-section">
+         <div class="arcane-grid">
+            <div class="arcane-grid-tile"></div>
+            <div class="arcane-grid-tile"></div>
+            <div class="arcane-grid-tile"></div>
+            <div class="arcane-grid-tile"></div>
+            <!-- Add more .arcane-grid-tile elements for additional items as needed -->
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2025 Theo Xenakis. All rights reserved.</p>
+</footer>
+
+<canvas id="dustCanvas"></canvas>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+hamburger.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+    this.setAttribute('aria-expanded', navLinks.classList.contains('show'));
+    if (navLinks.classList.contains('show')) {
+        document.addEventListener('click', function outsideClickListener(event) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                navLinks.classList.remove('show');
+                document.removeEventListener('click', outsideClickListener);
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+});
+</script>
+<script>
+// Minimal star field effect (if you have a dustCanvas)
+const canvas = document.getElementById('dustCanvas');
+if(canvas){
+    const ctx = canvas.getContext('2d');
+    function resize() {canvas.width = window.innerWidth;canvas.height = window.innerHeight;}
+    window.addEventListener('resize', resize);resize();
+    let particles = [];
+    function createParticles(count) {
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 1.5 + 0.5,
+                speedY: Math.random() * 0.5 + 0.1,
+                alpha: Math.random() * 0.5 + 0.1,
+            });
+        }
+    }
+    createParticles(80);
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+            ctx.fill();
+            p.y -= p.speedY;
+            if (p.y < 0) {
+                p.y = canvas.height;
+                p.x = Math.random() * canvas.width;
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+</script>
+</body>
+</html>
