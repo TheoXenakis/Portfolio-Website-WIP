@@ -401,6 +401,28 @@ section p {
 }
 
 /* ================================
+   Game Container Fullscreen
+=================================== */
+
+#game-container {
+  width: 100vw;   /* Fill viewport width */
+  height: 100vh;  /* Fill viewport height */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent; /* Or a color */
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ================================
    Background Effects
 =================================== */
 #dustCanvas {

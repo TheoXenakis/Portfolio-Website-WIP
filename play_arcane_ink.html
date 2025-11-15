@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Theo Xenakis | Game Designer</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+</head>
+
+<body>
+<!-- SVG noise texture for grainy effect -->
+<div class="grain-overlay"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo"><a href="index.html">Theo Xenakis</a></div>
+  <button class="hamburger" aria-label="Open navigation" aria-controls="navLinks" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume/Resume-Game-Design-Focus.pdf">Resume</a></li>
+  </ul>
+</nav>
+
+<!-- Place game below main content/navigation -->
+<div id="game-container"></div>
+
+<script>
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', function() {
+    navLinks.classList.toggle('show');
+    //if the list is shown, and the user clicks outside, close the menu
+    if (navLinks.classList.contains('show')) {
+        document.addEventListener('click', function outsideClickListener(event) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                navLinks.classList.remove('show');
+                document.removeEventListener('click', outsideClickListener);
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+    // ARIA accessibility
+    this.setAttribute('aria-expanded', navLinks.classList.contains('show'));
+});
+</script>
+
+<script>
+  var config = {
+    type: Phaser.AUTO,
+    width: 1000,
+    height: 600,
+    parent: 'game-container',
+    pixelArt: true,
+    backgroundColor: '#1c2c4c',
+    scene: {
+      preload: preload,
+      create: create,
+      update: update
+    },
+    physics: { default: 'arcade' },
+    scale: {
+    mode: Phaser.Scale.FIT,          // Grow/shrink to fit window, keep aspect
+    autoCenter: Phaser.Scale.CENTER_BOTH // Always center canvas
+  }
+  };
+
+  var game = new Phaser.Game(config);
+
+  function preload() {
+    //this.load.image('castle', 'assets/7.png');
+    this.load.spritesheet('castle-anim', 'assets/castle-anim.png', { frameWidth: 70, frameHeight: 130 });
+    this.load.image('plains-ground', 'assets/plains-ground.png');
+    this.load.image('Tree', 'assets/Tree.png');
+    this.load.spritesheet('flag-anim', 'assets/flag-anim.png', { frameWidth: 32, frameHeight: 64 });
+  }
+
+  function create() {
+    //add the ground & other static images (trees, bushes, etc)
+    this.add.image(250, 300, 'plains-ground');
+    
+
+    //add the castle and play animation
+    this.anims.create({
+        key: 'castleIdle',
+        frames: this.anims.generateFrameNumbers('castle-anim', { start: 0, end: 5 }),
+        frameRate: 5,
+        repeat: -1
+    });
+    var castle = this.add.sprite(455, 225, 'castle-anim');
+    castle.play('castleIdle');
+
+    //add the flag and play animation
+    this.anims.create({
+        key: 'flagWave',
+        frames: this.anims.generateFrameNumbers('flag-anim', { start: 0, end: 6 }),
+        frameRate: 6,
+        repeat: -1
+    });
+    var flag1 = this.add.sprite(600, 150, 'flag-anim');
+    var flag2 = this.add.sprite(300, 150, 'flag-anim');
+    flag1.play('flagWave');
+    flag2.play('flagWave');
+  }
+
+  function update() {}
+</script>
+
+</body>
+</html>
