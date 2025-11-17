@@ -55,14 +55,13 @@
             aspect-ratio: 16/9;
             background: #101c38;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
         }
-        .arcane-video-embed svg {
-            width: 64px;
-            height: 64px;
-            fill: #cfd8ff;
+        .arcane-video-embed img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
         .arcane-section {
             max-width: 1200px;
@@ -107,6 +106,7 @@
     </ul>
 </nav>
 
+
 <main>
     <h1 class="arcane-header">ARCANE INK</h1>
     <div class="arcane-top-row">
@@ -116,44 +116,69 @@
             <div>
                 <!-- Replace these lines with dynamic/current updates as wanted. -->
                 <ul style="padding-left:1em; margin:0;">
-                    <li>Project is being converted to 3D</li>
-                    <li>Goblin Walking Animations Complete</li>
-                    <li>Clay Doh Blender -> Unity Workflow Established for 3D Assets</li>
-                    <li>Increased number of images in spellcasting dataset and improving model architecture</li>
+                    <li>Project is being converted to 2D for Mobile</li>
+                    <li>Updated UI and HUD Complete</li>
+                    <li>New 2D Temporary Sprites Completed</li>
+                    <li>Increased number of images in spellcasting dataset and improved model architecture</li>
+                    <li>Improved handling of several spells</li>
+                </ul>
+            </div>
+            <div>
+                <br/>
+            </div>
+            <div style="font-weight:600; font-size: 1.4rem; letter-spacing: 0.07em; margin-bottom:0.5em;">Upcoming Updates [By Dec 2025]:</div>
+            <div>
+                <!-- Replace these lines with dynamic/current updates as wanted. -->
+                <ul style="padding-left:1em; margin:0;">
+                    <li>Replacement of all temporary 2D Assets</li>
+                    <li>Spellbook Functionality</li>
+                    <li>More Enemy Types</li>
+                    <li>Double of Reference Images + Improvements to CNN Model</li>
+                    <li>Gameplay Preview Video</li>
                 </ul>
             </div>
         </div>
         <!-- Video Showcase box -->
         <div class="arcane-video">
-            <div class="arcane-video-title">Video Showcase</div>
+            <div class="arcane-video-title">Showcase</div>
             <div class="arcane-video-embed">
+                <img src="images/arcane-ink-img.png" alt="Arcane Ink Gameplay Screenshot">
                 <!-- Embed a real video here when ready -->
                 <!-- Example: -->
                 <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen style="width:100%;height:100%;border-radius:9px;"></iframe> -->
-                <svg viewBox="0 0 100 100">
-                    <polygon points="35,25 75,50 35,75" />
-                </svg>
             </div>
-            <div style="text-align:center;color:#cfd8ff;margin-top:0.75em;font-size:1rem;">Gameplay preview or trailer coming soon!</div>
+            <div style="text-align:center;color:#cfd8ff;margin-top:0.75em;font-size:1rem;">Gameplay Preview Coming Soon!</div>
         </div>
     </div>
 
-    <div class="arcane-section">
-         <div class="arcane-grid">
-            <div class="arcane-grid-tile"></div>
-            <div class="arcane-grid-tile"></div>
-            <div class="arcane-grid-tile"></div>
-            <div class="arcane-grid-tile"></div>
-            <!-- Add more .arcane-grid-tile elements for additional items as needed -->
+    <section class="arcane-section">
+        <h2 style="font-size:2rem; font-weight:600; color:#cfd8ff; text-align:left;">Project Details</h2>
+        <div class="arcane-grid">
+            <div class="arcane-grid-tile">
+                <strong>👤 Role:</strong><br/>Solo Game Designer, ML Integration, Programmer
+            </div>
+            <div class="arcane-grid-tile">
+                <strong>🛠️ Tools:</strong><br/>Unity 2D, C#, Python, TensorFlow, Photoshop, Aseprite, Blender (3D Version)
+            </div>
+            <div class="arcane-grid-tile">
+                <strong>📱 Platform:</strong><br/>Desktop, Mobile
+            </div>
+            <div class="arcane-grid-tile">
+                <strong>📅 Timeline:</strong><br/>Sep 2025 - Ongoing
+            </div>
         </div>
-    </div>
+    </section>
+
 </main>
+
 
 <footer class="site-footer">
     <p>&copy; 2025 Theo Xenakis. All rights reserved.</p>
 </footer>
 
+
 <canvas id="dustCanvas"></canvas>
+
 
 <script>
 const hamburger = document.querySelector('.hamburger');
